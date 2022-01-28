@@ -34,7 +34,7 @@ contract Staking {
 
     //core funcs
     function stake(uint256 _value) external updateReward(msg.sender) {
-        require(_value > 0, "Cannot stake 0 tokens");
+        require(_value > 0, "Cannot stake 0 tokens!");
         _totalSupply += _value;
         _balances[msg.sender] = _balances[msg.sender] + _value;
         stakedAt[msg.sender] = block.timestamp;

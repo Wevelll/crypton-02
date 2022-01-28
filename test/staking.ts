@@ -71,6 +71,12 @@ describe("Staking contract", function () {
         ).to.satisfy;
     });
 
+    it("Should not stake 0 tokens", async function () {
+      await expect (
+        stakingContract.stake(ethers.utils.parseEther("0"))
+      ).to.be.revertedWith("Cannot stake 0 tokens!");
+    });
+
     it("Cannot unstake until certain time", async function () {
       await expect (
         stakingContract.unstake(ethers.utils.parseEther("100"))
@@ -106,6 +112,12 @@ describe("Staking contract", function () {
       console.log("Staking balance: " + balance2.toString());
       let balance22 = await rewardsToken.balanceOf(addr2.address);
       console.log("Rewards balance: " + balance22.toString());
+    });
+
+    it("Cannot unstake 0 tokens", async function () {
+      await expect (
+        stakingContract.unstake(ethers.utils.parseEther("0"))
+      ).to.be.revertedWith("Cannot unstake 0 tokens!");
     });
   });
 
