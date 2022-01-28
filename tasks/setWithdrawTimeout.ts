@@ -8,5 +8,5 @@ task("setWithdrawTimeout", "Sets withdraw <timeout> in seconds")
     const [signer] = await hre.ethers.getSigners();
     const contract = await hre.ethers.getContractAt("Staking", contractAddr);
     const result = await contract.setWithdrawTimeout(taskArgs.timeout);
-    console.log(result.toString());
+    console.log("Withdraws allowed after " + taskArgs.timeout + " seconds!");
 });

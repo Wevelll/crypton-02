@@ -10,5 +10,5 @@ task("unstake", "Unstake <amount> of tokens")
     const result = await contract.unstake(
         hre.ethers.utils.parseEther(taskArgs.amount)
         );
-    console.log(result.toString());
+    console.log("Withdrawn " + taskArgs.amount + " tokens!");
 });

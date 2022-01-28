@@ -10,5 +10,5 @@ task("setRewardRate", "Sets the <amount> of reward tokens given per second")
     const result = await contract.setRewardRate(
         hre.ethers.utils.parseEther(taskArgs.amount)
         );
-    console.log(result.toString());
+    console.log("Reward rate set to " + taskArgs.amount);
 });

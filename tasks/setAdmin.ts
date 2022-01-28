@@ -8,5 +8,5 @@ task("setAdmin", "Set <account> as admin")
     const [signer] = await hre.ethers.getSigners();
     const contract = await hre.ethers.getContractAt("Staking", contractAddr);
     const result = await contract.setAdmin(taskArgs.account);
-    console.log(result.toString());
+    console.log(taskArgs.account + " is now admin!");
 });

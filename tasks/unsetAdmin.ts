@@ -8,5 +8,5 @@ task("unsetAdmin", "Remove <account> from admins")
     const [signer] = await hre.ethers.getSigners();
     const contract = await hre.ethers.getContractAt("Staking", contractAddr);
     const result = await contract.unsetAdmin(taskArgs.account);
-    console.log(result.toString());
+    console.log(taskArgs.account + " removed from admins!");
 });

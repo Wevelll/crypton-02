@@ -15,5 +15,5 @@ task("stake", "Stake <amount> of tokens")
     const result = await contract.stake(
         hre.ethers.utils.parseEther(taskArgs.amount)
     );
-    console.log(result.toString());
+    console.log("Staked " + taskArgs.amount + " tokens");
 });
